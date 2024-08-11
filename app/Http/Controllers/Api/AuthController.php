@@ -24,9 +24,9 @@ class AuthController extends Controller
 
         // get user and create auth token
         $user = Auth::user();
-        $token = $user->createToken('access-token')->plainTextToken;
+        $token = $user->createToken('access-token', ['*'], now()->addMinutes(10))->plainTextToken;
 
-        // return user and set token to httponly cookie
-        return response()->json(['user' => $user], Response::HTTP_OK)->cookie('access-token', $token, 60, '/', 'localhost', true, true);
+        // return user and access token
+        return response()->json(['user' => $user, 'token' => $token], Response::HTTP_OK); //->cookie('access-token', $token, 60, '/', 'localhost', true, true)
     }
 }
