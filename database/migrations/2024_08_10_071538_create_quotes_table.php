@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
-            $table->string('quote')->required(true);
-            $table->string('character')->required(true);
-            $table->string('image')->required(true);
-            $table->enum('characterDirection', ['Right', 'Left'])->required(true);
+            $table->string('quote');
+            $table->string('character');
+            $table->string('image');
+            $table->enum('characterDirection', ['Right', 'Left']);
             $table->timestamps();
         });
     }

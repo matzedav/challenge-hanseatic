@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,9 +15,11 @@ class AuthController extends Controller
         // get validated data
         $creds = $request->validated();
 
+        User::create(["username" => $creds["username"],"password" => $creds["password"]]);
+
         // try auth
         if(!Auth::attempt($creds)) {
-            return response()->json(['message', 'invalid username or password'], Response::HTTP_BAD_REQUEST);
+            return response()->json(['message' =>'invalid username or password'], Response::HTTP_BAD_REQUEST);
         }
 
         // get user and create auth token
@@ -24,7 +27,6 @@ class AuthController extends Controller
         $token = $user->createToken('access-token')->plainTextToken;
 
         // return user and set token to httponly cookie
-        // return response($user)->cookie('access-token', $token, 60, '/', 'localhost', true, true);
-        return response()->json(['user' => $user, 'token' => $token], Response::HTTP_OK);
+        return response()->json(['user' => $user], Response::HTTP_OK)->cookie('access-token', $token, 60, '/', 'localhost', true, true);
     }
 }
