@@ -28,7 +28,7 @@ Sending correct combination of username `username` and `password` to the auth en
 
 ```json
 {
-    "username": "matzdav",
+    "username": "matzedav",
     "password": "Test1234#"    
 }
 ```
