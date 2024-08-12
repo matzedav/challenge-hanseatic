@@ -18,7 +18,11 @@ class QuoteController extends Controller
 
         // calculate how many quotes should requested and get quotes from API
         $number_of_quotes = 5-count($quotes_db);
-        $quotes_api = Http::get("https://thesimpsonsquoteapi.glitch.me/quotes?count={$number_of_quotes}")->json();
+        $api_response = Http::get("https://thesimpsonsquoteapi.glitch.me/quotes?count={$number_of_quotes}");
+        if($api_response->failed() || count($api_response->json()) == 0) {
+            return response()->json(['message' =>'simpson api not available'], Response::HTTP_FAILED_DEPENDENCY);
+        }
+        $quotes_api = $api_response->json();
         
         if (count($quotes_db) >= 4) {
             // delete oldest quote and save first quote
