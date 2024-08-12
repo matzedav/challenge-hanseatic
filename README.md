@@ -1,6 +1,6 @@
 ## Software Architecture
 
-![alt text](https://github.com/matzedav/challenge-hanseatic/blob/main/images/Architecture.png?raw=true)
+![alt text](https://github.com/matzedav/challenge-hanseatic/blob/main/images/architecture.png?raw=true)
 
 1. The request is sent from the Angular/Vue/React frontend and reaches the backend `gateway/router`. 
 2. The router handles the request and checks if the user is authorized requesting the source. The auth middleware validates with Eloquent `models` the request and forwards the request to the `controller`. 
