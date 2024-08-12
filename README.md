@@ -47,7 +47,7 @@ The response will look like:
 }
 ```
 
-This token can be used for the `Bearer Schema` authentication header in order to receive data from the quotes endpoint. If the token is expired or the token is not registred the quotes endpoint will return `HTTP 403 - unauthorized`.
+This token can be used for the `Bearer Schema` authentication header in order to receive data from the quotes endpoint. If the token is expired or the token is not registered the quotes endpoint will return `HTTP 403 - unauthorized`.
 
 
 ## Example Flow
