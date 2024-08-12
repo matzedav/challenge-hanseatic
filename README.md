@@ -1,6 +1,6 @@
 ## Software Architecture
 
-![alt text](https://github.com/matzedav/challenge-hanseatic/blob/main/Backend_Architecture.png?raw=true)
+![alt text](https://github.com/matzedav/challenge-hanseatic/blob/main/Architecture.png?raw=true)
 
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
