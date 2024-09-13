@@ -15,7 +15,7 @@ class AuthController extends Controller
         // get validated data
         $creds = $request->validated();
 
-        User::create(["username" => $creds["username"],"password" => $creds["password"]]);
+        // User::create(["username" => $creds["username"],"password" => $creds["password"]]);
 
         // try auth
         if(!Auth::attempt($creds)) {
